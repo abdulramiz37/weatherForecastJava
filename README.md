@@ -138,3 +138,7 @@ public static void main(String[] args){
 
 
 }
+
+
+Output 
+![Screenshot (375)](https://user-images.githubusercontent.com/92448045/214781299-7bc86a2c-e9bc-41b3-91f6-9b83ba60a1ff.png)
