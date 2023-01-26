@@ -22,45 +22,65 @@
     
     package org.weatherforecast;
 
-//import org.apache.http.client.HttpClient;?
 import netscape.javascript.JSObject;
+
 import org.apache.http.HttpEntity;
+
 import org.apache.http.client.methods.CloseableHttpResponse;
+
 import org.apache.http.client.methods.HttpGet;
+
 import org.apache.http.client.utils.URIBuilder;
+
 import org.apache.http.impl.client.CloseableHttpClient;
+
 import org.apache.http.impl.client.HttpClients;
+
 import org.apache.http.util.EntityUtils;
+
 import org.json.JSONArray;
+
 import org.json.JSONObject;
 
+
 import javax.swing.text.html.parser.Entity;
+
 import java.io.IOException;
+
 import java.net.URISyntaxException;
-//import java.text.RBTableBuilder;
+
+
 import java.util.Scanner;
 
-//import static javax.management.MBeanServerFactory.builder;
-
-//import static javax.management.MBeanServerFactory.builder;
 
 public class WeatherForecastApp {
 
 
 public static void main(String[] args){
+
     try {
+    
         callWeatherForecastAPI();
+        
     } catch (URISyntaxException e) {
+    
         throw new RuntimeException(e);
+        
     } catch (IOException e) {
+    
         throw new RuntimeException(e);
+        
     }
 }
 
     public static void callWeatherForecastAPI() throws URISyntaxException, IOException {
+    
     System.out.println("hjcsbhjs00");
+    
     Scanner sc= new Scanner(System.in);
+    
     String location =sc.nextLine();
+    
 
     URIBuilder builder = new URIBuilder("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/weatherdata/forecast"); //Rest Api
 
@@ -74,14 +94,20 @@ public static void main(String[] args){
         HttpGet getData = new HttpGet(builder.build());
 
     CloseableHttpClient httpClient = HttpClients.createDefault();
-//
+
+
     CloseableHttpResponse response =httpClient.execute(getData);
-        httpClient.close();
-//    System.out.print(response);
+       
+       httpClient.close();
+
+
         if(response.getStatusLine().getStatusCode()==200) {
-            HttpEntity responseEnty = response.getEntity();
-            String result = EntityUtils.toString(responseEnty);
-            System.out.println("datetimeStr \t \t \t  mint  \t \t maxt  \t \t  visibility  \t \t humidity");
+           
+           HttpEntity responseEnty = response.getEntity();
+           
+           String result = EntityUtils.toString(responseEnty);
+           
+           System.out.println("datetimeStr \t \t \t  mint  \t \t maxt  \t \t  visibility  \t \t humidity");
 
             //Json response Formatting for attributes
 
